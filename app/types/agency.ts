@@ -1,6 +1,6 @@
 /**
  * 대리점(order_users) 계정·건수·단가 타입과 라벨.
- * plink-api 문서: docs/admin-app/order-users-api.md, 설계: BALANCE.md
+ * plink-api 문서: docs/admin-app/order-users-api.md, 설계: 모노리포 docs/balance.md
  * - 잔액은 원이 아니라 유형별 건수다. 시스템은 건수만 옮기고 돈은 오프라인으로 처리한다.
  * - API의 이름·memo·사유는 base64이며, Server Action(actions.ts)에서 복원해 넘긴다.
  */
