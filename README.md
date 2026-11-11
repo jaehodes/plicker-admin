@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# plink-admin
 
-## Getting Started
+플링크 관리자 웹(Next.js). 발주·수행·문의, 대리점(건수·단가·정산), PC방 현황을 본다.
 
-First, run the development server:
+## 로컬 실행
+
+Node 22.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev -- -p 3100   # plink-api가 로컬에서 3000을 쓰므로 다른 포트로 띄운다
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.local`에 넣는 값:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| 변수 | 내용 |
+|---|---|
+| `PLINK_API_URL` | plink-api 주소 (예: `http://localhost:3000`) |
+| `APP_ENV` | `development` / `production`. 쿠키 이름과 화면의 환경 표시를 정한다 |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+계정은 plink-api의 관리자 계정(`admin_users`)으로 로그인한다. 계정은 plink-api CLI(`admin-account`)로 만든다.
 
-## Learn More
+## 확인과 배포
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+배포는 Docker 이미지로 한다: [docs/deploy/docker.md](docs/deploy/docker.md). 구조와 작업 규칙은 [CLAUDE.md](CLAUDE.md).
