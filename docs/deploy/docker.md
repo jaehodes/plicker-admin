@@ -1,6 +1,6 @@
 # Docker 배포
 
-plink-api와 같은 방식으로, 한 서버에서 dev와 prod를 compose 프로젝트 두 개로 나눠 운영한다. 이미지는 환경과 무관하게 하나이며, 환경 구분은 실행 시 주입하는 값으로만 한다. (plink-api: `../plink-api/docs/deploy/docker.md`)
+공통 결정, GCP·서버 최초 설정, 배포 흐름은 모노리포 [docs/deploy.md](../../../docs/deploy.md).
 
 | | dev | prod |
 |---|---|---|
@@ -38,7 +38,7 @@ $HOME/plink/plink-admin/<env>/
 
 ## 최초 설정 (서버)
 
-Artifact Registry 저장소와 서버의 `docker login`은 plink-api에서 한 것을 그대로 쓴다.
+Artifact Registry 저장소와 서버의 `docker login`은 공통 설정을 그대로 쓴다.
 
 ```bash
 mkdir -p $HOME/plink/plink-admin/{dev,prod}   # 홈 디렉터리 아래라 sudo가 필요 없다
