@@ -47,7 +47,7 @@ mkdir -p $HOME/plink/plink-admin/{dev,prod}   # 홈 디렉터리 아래라 sudo�
 로컬(Mac)에서 복사:
 
 ```bash
-SERVER=ubuntu@<서버>   # scp 원격 경로(plink/...)는 서버 홈 디렉터리 기준
+SERVER=jaeho@<서버>   # scp 원격 경로(plink/...)는 서버 홈 디렉터리 기준
 scp deploy/compose.yml $SERVER:plink/plink-admin/dev/compose.yml
 scp deploy/env.example $SERVER:plink/plink-admin/dev/.env
 scp deploy/compose.yml $SERVER:plink/plink-admin/prod/compose.yml
